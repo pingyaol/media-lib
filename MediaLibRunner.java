@@ -57,11 +57,10 @@ public class MediaLibRunner
      */
 
     // step 25 
-    Book newBook2 = new Book("1984", "Orwell");
+    Book newBook2 = new Book("To Kill a Mockingbird", "Lee");
+    myLib2.addBook(newBook2);
     System.out.println(newBook2 + " equal " + newBook + "? "  + newBook2.equals(newBook));
-    newBook2.setAuthor("George Orwell");
-    System.out.println(newBook2 + " equal " + newBook + "? "  + newBook2.equals(newBook));
-  
+
     // step 27 
     // error: System.out.println(newBook2.title);   
 

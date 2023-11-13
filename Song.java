@@ -1,10 +1,10 @@
-public class Movie {
+public class Song {
   private String title;
   private double duration;
   private int rating;
   
   /*** Constructor ****/
-  public Movie(String t, double d)
+  public Song(String t, double d)
   {
     title = t;
     duration = d;
@@ -34,8 +34,8 @@ public class Movie {
     return info;
   }
 
-  public boolean equals(Movie m) {
-    boolean sameMovie = this.title.equals(m.getTitle()) && this.duration == m.getDuration(); 
+  public boolean equals(Song s) {
+    boolean sameMovie = this.title.equals(s.getTitle()) && this.duration == s.getDuration(); 
     return sameMovie; 
   }
 
