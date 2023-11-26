@@ -49,6 +49,14 @@ public class MediaLibRunner
     newBook = new Book("1984", "Orwell");
     System.out.println(myLib2);
 
+    Movie newMovie = new Movie("Barbie");
+    myLib2.addMovie(newMovie);
+    System.out.println(myLib2);
+
+    Song newSong = new Song("Lover");
+    myLib2.addSong(newSong);
+    System.out.println(myLib2);
+
     // steps 18 - 22 
     /*
     System.out.println("before change: " + newBook);
@@ -57,10 +65,11 @@ public class MediaLibRunner
      */
 
     // step 25 
-    Book newBook2 = new Book("To Kill a Mockingbird", "Lee");
-    myLib2.addBook(newBook2);
+    Book newBook2 = new Book("1984", "Orwell");
     System.out.println(newBook2 + " equal " + newBook + "? "  + newBook2.equals(newBook));
-
+    newBook2.setAuthor("George Orwell");
+    System.out.println(newBook2 + " equal " + newBook + "? "  + newBook2.equals(newBook));
+  
     // step 27 
     // error: System.out.println(newBook2.title);   
 

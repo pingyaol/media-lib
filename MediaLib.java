@@ -6,78 +6,46 @@
 public class MediaLib
 {
   private Book book;
+  private Movie movie;
+  private Song song;
   public static String owner = "PLTW";
   private static int numEntries = 0;
-  private Movie movie; 
-  private Song song; 
-
   public void addBook(Book b)
   {
-    if (book == null) {
-      book = b; 
-      numEntries++; 
-    } else {
-      System.out.println("Sorry! You already have a book in the library! "); 
-    }
+	book = b;
+  numEntries++;
   }
-  public void addMovie(Movie m) {
-    if (movie == null) {
-      movie = m; 
-      numEntries++; 
-    } else {
-      System.out.println("Sorry! You already have a movie in the library! "); 
-    }
-  }
-  
-  public void addSong(Song s) {
-    if (song == null) {
-      song = s; 
-      numEntries++; 
-    } else {
-      System.out.println("Sorry! You already have a song in the library! "); 
-    }
-  }
-
-  public void changeBook(Book b) {
-    book = b; 
-  }
-  
-  public void changeMovie(Movie m) {
-    movie = m; 
-  }
-
-  public void changeSong(Song s) {
-    song = s; 
-  }
-
-
-  public String toString() 
+  public void addMovie(Movie m)
   {
-    String info = ""; 
-    if (book == null) {
-      info = "";
-    } else {
-      info = book.toString();
-    }
-    if (movie == null) {
-      info += ""; 
-    } else {
-      info = movie.toString();
-    }
-    if (song == null) {
-      info += ""; 
-    } else {
-      info = song.toString();
-    }
-    
-    return info;
+	movie = m;
+  numEntries++;
   }
-
-  public void testBook(Book tester) {
-    tester.setTitle("new title");
-    System.out.println("the title has been changed to: " + tester.getTitle());
+  public void addSong(Song s)
+  {
+	song = s;
+  numEntries++;
   }
+  // new step 18-22
+  /* test scenario
+  public void testBook(Book tester)
+  {
+	tester.setTitle("Animal Farm");
+	// show state chagne with one of the following
+	System.out.println(" in test: " + tester);
+	System.out.println(" in test: " + tester.getTitle());
+  }
+  */
 
+  public String toString()  
+  {
+	String info = "";
+ 
+	// Step 5, avoid crashing by testing that book is not null before using its toString method
+	
+  info += "Book: " + book + "\n"+"Movie: " + movie + "\n"+"Song: " + song + "\n";
+ 
+	return info;
+  }
   public static String getOwner()
   {
     return owner;
@@ -89,3 +57,4 @@ public class MediaLib
     return numEntries;
   }
 }
+

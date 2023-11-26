@@ -1,59 +1,75 @@
-public class Song {
-  private String title;
-  private double duration;
+/*
+ * Activity 2.5.7
+ *
+ * A Book class for the MediaLibrary program
+ */
+public class Song
+{
   private int rating;
-  
+  private String title;
+  private String author;
+  private String date;
+
   /*** Constructor ****/
-  public Song(String t, double d)
+  public Song(String t)
   {
-    title = t;
-    duration = d;
-    rating = 0;
+	title = t;
+    date = DateTime.getTime ();
   }
-  
+ 
    /*** Accessor methods ***/
   public String getTitle() {
-    return title;
+	return title;
   }
-
-  public double getDuration() {
-    return duration;
+ 
+  public String getAuthor() {
+	return author;
   }
-  
+ 
   public int getRating() {
-    return rating;
+	return rating;
   }
-  
-  public String toString() 
+ 
+  public String toString()  
   {
-    String info = "\"" + title + "\", with a duration of " + duration + " minutes";
-    if (rating != 0) 
-    { 
-      info += ", rating is " + rating;
-    }
-    return info;
+	String info = "\"" + title + "\", written by " + author;
+	if (rating != 0)  
+ 	info += ", rating is " + rating;
+	 
+	return info;
   }
-
-  public boolean equals(Song s) {
-    boolean sameMovie = this.title.equals(s.getTitle()) && this.duration == s.getDuration(); 
-    return sameMovie; 
+ 
+  // Step 23 - 29
+  public boolean equals(Song s)
+  {
+	// variations of the if statement:
+	// if(b.title.equals(getTitle()) && b.author.equals(getAuthor()))
+	// if(title.equals(b.title) && author.equals(b.author))
+	// if(b.title.equals(title) && b.author.equals(author))
+	if(this.title.equals(s.title) && this.author.equals(s.author))
+  	return true;  
+	return false;
+ 
   }
-
+ 
   /*** Mutator methods ***/
+  public void setAuthor(String a) {
+	author = a;
+  }
+	 
   public void setTitle(String t) {
-    title = t;
+	title = t;
   }
-
-  public void setDuration(double d) {
-    duration = d;
+ 
+  // Step 7: create the method
+  public void adjustRating(int r)
+  {
+	// Step 10-11 improve the method
+	if ((rating + r >= 0) && (rating + r <= 10))
+  	rating += r;
+ 
+	r = 10;// Step 9: changing the param here has no effect in the runner
+ 
   }
-
-  public int adjustRating(int r) {
-    if (r >= 0 && r <= 10) {
-      rating += r; 
-    } else {
-      rating = 10; 
-    }
-    return rating; 
-  }
+ 
 }
